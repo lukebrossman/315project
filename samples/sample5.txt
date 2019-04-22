@@ -1,0 +1,28 @@
+this is just a writing sample that is meant to fill out my dataset. essentially, i am simply writing down a stream of conscioussness.
+machine learning is interesting to me, but it is becoming increasingly difficult for me to even think about how this model will work. 
+one of the major problems that i am grappling with is that i don't currently have a way for the model to come up with a word as a class 
+label. part of me is wondering if modeling the whole system as a graph is the best way and simply walking through the sentence path until  
+i come to a point where the next edge on the graph is undefined. at this point the model would simply pick the edge that seems the most likely and 
+see where it ends up. the problem with this approach is that the path up to the missing edge may have never been seen by the model before.
+i suppose a solution to this is to think of every possible word as being theoretically reachable from every other word. this would mean 
+that the only thing considered when picking the missing word would be the word that came right before it. this seems to be too simple a model 
+to be useful but it is the only way i can think of to build a probabalistic graph. how can i use the context of a sentence to guess the missing word.
+maybe i can simply look at the word just before and just after and see if there exists a path from the first word to the second. the problem here is that 
+if the path from the first to the second word contains multiple edges and is unique then it is difficult to see how the algorithm would choose 
+a missing word. it does seem intuitively true that the english language is just a graph wherein each word is a node and a sentence is a path 
+that leads from the first word to the last collecting the words from the nodes it visits along the way. there are some extremely difficult 
+questions about this graph. is every word an initial node and a final node. is this graph acyclic or even directed. are there nodes that are 
+absolutley unreachable from other nodes or is the graph one strongly connected component. many of these questions are questions about the grammar 
+and syntax of the english language.
+however even among humans the rules of grammar and syntax are not terribly well understood.
+from this perspective it seems like the best approach is to treat the language graph as undirected and that the absence of an edge from one word to another is simply due to chance rather than rammatical restrictions.
+it is even possible for a word in english to appear consecutively upwards of four times.
+does this imply that every word should be considered to have a reflective edge.
+is there a threshold of probabilistic confidence that i should use to constrain the edges that are present in this graph.
+the benefit of a threshold constraint would be to trim down the number of edges in the graph.
+however the possibility exists that the extreme variability of the english language would make nearly every edge between two nodes very unlikely.
+currently i have somewhere around five samples of text that contain what i estimate to be about five to six thousand words.
+i would estimate that this translates to around five or six hundred sentences.
+now that i think about it the word to word approach seems to be more appropriate given the small data set that i have access to.
+the only writings that i am using are my own.
+based on the assumption that i have something of a consistent writing style constraining the dataset to my own works should help to increase accuracy.
