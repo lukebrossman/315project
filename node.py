@@ -1,3 +1,4 @@
+import random
 class node:
     def addEdge(self, wordNode):
         self.frequency += 1
@@ -20,6 +21,16 @@ class node:
             return self.paths[target][1] / self.frequency
         else:
             return 0
+    
+    def getRandomPath(self):
+        edges = list(self.paths.values())
+        return edges[random.randint(0,len(edges) -1)][0]
+    
+    def getMostLikelyPath(self):
+        edges = list(self.paths.values())
+        edges.sort(key=lambda x: x[1]) #sort the edges that the word can take based on frequence lowest to largest
+        edges.reverse()
+        return edges[0][0]
 
     def edgesToTarget(self, target):
         edges = list(self.paths.values())
@@ -31,9 +42,10 @@ class node:
                 returnedges.append((edge[1] / self.frequency, edge[0]))
         return returnedges
 
-
-
-    def __init__(self, word):
+    def __init__(self, word, start, final):
         self.frequency = 0
         self.word = word
         self.paths = {}
+        self.startnode = start
+        self.finalnode = final
+
