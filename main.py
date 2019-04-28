@@ -91,10 +91,8 @@ def predictMissingWords():
 def main():
     createTreeFromSamplesFolder()
     generateRandomSentence()
-    print(len(testingData))
+    print(len(wordDict))
     predictMissingWords()
     
-
-
 if __name__ == "__main__":
     main()
